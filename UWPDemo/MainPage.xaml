@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="UWPDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:UWPDemo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+
+    <Grid>
+        <SplitView
+            x:Name="MySplitView"
+            DisplayMode="CompactInline"
+            IsPaneOpen="False"
+            OpenPaneLength="180">
+            <SplitView.Pane>
+                <ListView
+                    x:Name="lvNavigationMenuMain"
+                    Background="#032e72"
+                    IsItemClickEnabled="True"
+                    ItemClick="LvNavigationMenuMain_ItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Source="{Binding IconPath}"
+                                    Style="{StaticResource MenuIconStyle}" />
+
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="12"
+                                    Text="{Binding Title}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <SplitView
+                    x:Name="SubMenuSplitView"
+                    DisplayMode="Inline"
+                    IsPaneOpen="False"
+                    OpenPaneLength="180">
+                    <SplitView.Pane>
+                        <ListView
+                            x:Name="lvNavigationMenuSub"
+                            Background="#094099"
+                            IsItemClickEnabled="True"
+                            ItemClick="LvNavigationMenuSub_ItemClick"
+                            ItemsSource="{Binding ElementName=lvNavigationMenuMain, Path=SelectedItem.SubMenus, UpdateSourceTrigger=PropertyChanged}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0" Text="{Binding Title}" />
+
+                                        <FontIcon
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Right"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            Glyph="&#xE710;" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </SplitView.Pane>
+                    <SplitView.Content>
+                        <TextBlock
+                            x:Name="tbDescription"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="25" />
+                    </SplitView.Content>
+                </SplitView>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
