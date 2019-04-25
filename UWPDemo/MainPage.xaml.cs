@@ -45,7 +45,7 @@ namespace UWPDemo
                 }
                 else
                 {
-                    tbDescription.Text = $"You clicked {model.Title}";
+                    tbDescription.Text = $"You clicked MainMenu : {model.Title}";
                 }
 
                 SubMenuSplitView.IsPaneOpen = model.SubMenus.Any();
@@ -57,7 +57,7 @@ namespace UWPDemo
             var model = (MenuItem)e.ClickedItem;
             if (model != null)
             {
-                tbDescription.Text = $"You clicked {model.Title}";
+                tbDescription.Text = $"You clicked SubMenu : {model.Title}";
             }
         }
     }
