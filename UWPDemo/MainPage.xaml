@@ -82,11 +82,9 @@
                         </ListView>
                     </SplitView.Pane>
                     <SplitView.Content>
-                        <TextBlock
-                            x:Name="tbDescription"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="25" />
+                        <Frame x:Name="ContentFrame" >
+
+                        </Frame>
                     </SplitView.Content>
                 </SplitView>
             </SplitView.Content>

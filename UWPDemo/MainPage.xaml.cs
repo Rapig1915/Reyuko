@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UWPDemo.Data;
 using UWPDemo.Models;
+using UWPDemo.Pages.Dashboard;
+using UWPDemo.Pages.Salesboard;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -45,7 +47,11 @@ namespace UWPDemo
                 }
                 else
                 {
-                    tbDescription.Text = $"You clicked MainMenu1 : {model.Title}";
+                    if (model.Title == "Dashboard")
+                        ContentFrame.Navigate(typeof(DashboardPage));
+                    else
+                        ContentFrame.Navigate(typeof(SalesboardPage));
+                    //tbDescription.Text = $"You clicked MainMenu1 : {model.Title}";
                 }
 
                 SubMenuSplitView.IsPaneOpen = model.SubMenus.Any();
@@ -57,7 +63,7 @@ namespace UWPDemo
             var model = (MenuItem)e.ClickedItem;
             if (model != null)
             {
-                tbDescription.Text = $"You clicked SubMenu : {model.Title}";
+                // tbDescription.Text = $"You clicked SubMenu : {model.Title}";
             }
         }
     }
