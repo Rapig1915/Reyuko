@@ -103,7 +103,7 @@ namespace UWPDemo.Controls
             // set the chart margine
             ChartMarline = new Thickness(30, 20, 20, 20);
             BarMarline = 20;
-            BarStep = 0.3;
+            BarStep = 0.7;
             LabelFontSize = 12;
 
             // allocates the line and label
@@ -155,8 +155,8 @@ namespace UWPDemo.Controls
             rtContent.Fill = new SolidColorBrush(Colors.Red);
             //canvas.Children.Add(rtContent);
 
-            int nTop = (int)ChartMarline.Top;
-            int dSetep = (int)(rtContent.Height / 10);
+            double nTop = (int)ChartMarline.Top;
+            double dSetep = rtContent.Height / 10;
             foreach (Line line in m_Lines)
             {
                 line.X1 = ChartMarline.Left; line.Y1 = nTop;

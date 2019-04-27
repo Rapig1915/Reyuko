@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:UserControl="using:UWPDemo.Controls" 
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="Auto" Height="Auto" SizeChanged="Size_Changed"  >
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="Auto" Height="Auto"  >
 
     <Grid x:Name="MyGrid" Background="White" >
         <Grid.RowDefinitions>
@@ -47,8 +47,17 @@
                             <RowDefinition Height="3*"/>
                             <RowDefinition Height="7*"/>
                         </Grid.RowDefinitions>
-                        <Button Grid.Row="0"  Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="List" Foreground="Blue" FontSize="20" />
-                        <Button Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Chart1" Foreground="Red" FontSize="20" />
+                        <UserControl:ListControl Grid.Row="0" x:Name="list1" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3.3*"/>
+                                <RowDefinition Height="3.3*"/>
+                                <RowDefinition Height="3.4*"/>
+                            </Grid.RowDefinitions>
+                            <UserControl:TableControl Grid.Row="0" x:Name="table1" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                            <UserControl:TableControl Grid.Row="1" x:Name="table2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                            <UserControl:TableControl Grid.Row="2" x:Name="table3" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                        </Grid>
 
                     </Grid>
                 </Grid>

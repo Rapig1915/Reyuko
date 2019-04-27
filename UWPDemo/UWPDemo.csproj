@@ -122,6 +122,15 @@
     <Compile Include="Controls\ChartControl.xaml.cs">
       <DependentUpon>ChartControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ListControl.xaml.cs">
+      <DependentUpon>ListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListItemDetailControl.xaml.cs">
+      <DependentUpon>ListItemDetailControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TableControl.xaml.cs">
+      <DependentUpon>TableControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\Menu.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -145,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Icons\accounting_drawer.png" />
+    <Content Include="Assets\Icons\Asset 1.png" />
     <Content Include="Assets\Icons\calendar_1.png" />
     <Content Include="Assets\Icons\calendar_drawer.png" />
     <Content Include="Assets\Icons\contact_drawer.png" />
@@ -218,6 +228,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\ChartControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListItemDetailControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TableControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
