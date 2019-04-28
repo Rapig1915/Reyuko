@@ -7,26 +7,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:UserControl="using:UWPDemo.Controls" 
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="Auto" Height="Auto"  >
+      Width="Auto" Height="Auto"  >
 
-    <Grid x:Name="MyGrid" Background="White" >
+    <Grid x:Name="MyGrid" Padding="20,0,0,0" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="28.5"/>
+            <RowDefinition Height="31.5"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" 
             x:Name="tbDescription"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            FontSize="35" Text="Dashboard" Margin="10,10,0,0" Foreground="Black" />
-        <Grid HorizontalAlignment="Stretch" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Stretch" >
+            FontSize="36" Text="Dashboard" Margin="10,10,0,0" Foreground="Black" Grid.RowSpan="2" />
+        <Grid Margin="10,10,0,0" Grid.Row="2" >
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="7*"/>
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0">
-                    
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="5*"/>
@@ -39,7 +40,7 @@
                     <UserControl:ChartControl Grid.Row="0" Grid.Column="1" x:Name="graph2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     <UserControl:ChartControl Grid.Row="1" Grid.Column="0" x:Name="graph3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     <UserControl:ChartControl Grid.Row="1" Grid.Column="1" x:Name="graph4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                   
+
                 </Grid>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

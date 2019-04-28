@@ -115,5 +115,20 @@ namespace UWPDemo.Pages.Dashboard
             ListItemDetailControl.ListItemDetail(str, "Your content here");
 
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter == null)
+                return;
+            if(string.IsNullOrEmpty(e.Parameter.ToString()))
+            {
+                
+            }
+            else
+            {
+                string str = "QWE";
+            }
+        }
     }
 }

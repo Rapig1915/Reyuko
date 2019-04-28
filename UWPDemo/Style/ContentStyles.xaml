@@ -6,6 +6,7 @@
     <Style x:Key="MenuIconStyle" TargetType="Image">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="25" />
+        
     </Style>
 
 </ResourceDictionary>

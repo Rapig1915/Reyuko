@@ -5,10 +5,300 @@
     xmlns:local="using:UWPDemo.Pages.Salesboard"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Windows10FallCreatorsUpdate="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 5)" 
+    xmlns:data="using:UWPDemo.Pages.Salesboard"
+    xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controlsprimitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    x:Name="MyWindow"
+    >
 
-    <Grid>
+    <Grid Background="White" Padding="27,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="440"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock 
+                Grid.Column="0"
+                x:Name="tbDescription"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontSize="36" Text="Production" Margin="10,10,0,0" Foreground="Black" />
+            <StackPanel
+                FlowDirection="LeftToRight" Orientation="Horizontal"
+                Grid.Column="1">
+                <Button Name="btnCalculate" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                        <Image Source="/Assets/Sales/calculate.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Calculate"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnSave" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                        <Image Source="/Assets/Sales/save.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Save"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnPrint" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                        <Image Source="/Assets/Sales/print.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Save"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnCancel" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                        <Image Source="/Assets/Sales/close.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Cancel"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnMore" Background="Transparent" >
+                    <Image Source="/Assets/Sales/more.png" Width="30" Height="30"/>
+                    <Button.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text ="Internal Notes">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                                            <Image Source="/Assets/Sales/notes.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" Margin="0,0, 20,0"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text ="Save as Draft">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem" >
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                                            <Image Source="/Assets/Sales/save.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text ="Save as PDF">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                                            <Image Source="/Assets/Sales/save.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text ="Play Tutorial">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Windows10FallCreatorsUpdate:Spacing="5">
+                                            <Image Source="/Assets/Sales/tutorial.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="10" Orientation="Vertical" Spacing="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Document Reference No."/>
+                <TextBlock Text="" Width="70"/>
+                <TextBlock Text="Production Number"/>
+                <TextBlock Text="" Width="100"/>
+                <TextBlock Text="Location From"/>
+                <TextBlock Text="" Width="120"/>
+                <TextBlock Text="Location To"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBox Name="txtDocument_Referencce_No" Width="200"/>
+                <Image Source="/Assets/Sales/black_plus.png" Width="15"/>
+                <TextBox Name="txtProduction_Name" Width="200"/>
+                <TextBlock Text="" Width="10"/>
+                <ComboBox Name="cbLocation_From" Width="180"/>
+                <TextBlock Text="" Width="12"/>
+                <ComboBox Name="cbLocation_To" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Note"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBox Name="txtNote" Width="400"/>
+                <Button Name="btnStock_List" Width="120" Height="30" Background="DarkOrange"  Content="Stock List"/>
+            </StackPanel>
+            <TextBlock Height="20"/>
 
+            <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0" Spacing="10">
+                <Image Source="/Assets/Sales/red_plus.png"/>
+                <TextBlock Text="Product" />
+                
+                <Image Source="/Assets/Sales/green_plus.png"/>
+                <TextBlock Text="Other Cost" />
+            </StackPanel>
+            <StackPanel Height="10"/>
+            <Grid Height="200" Width="1000
+                  " HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="LightGray" BorderThickness="1 1 1 0" BorderBrush="Black">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="SKU/Name" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" Margin="10,0,0,0" />
+                    <TextBlock Grid.Column="1" Text="Total" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="2" Text="Unit" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="3" Text="Price" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="4" Text="Total" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="5" Text="Job" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="6" Text="Account" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+
+
+                </Grid>
+                <ListView x:Name="list1" 
+                      Grid.Row="1"
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch" IsItemClickEnabled="False" 
+                      ItemsSource="{x:Bind m_goingProductList1}" BorderThickness="1,1,1,1" BorderBrush="Black" >
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                            <Setter Property="BorderThickness"  Value="0 0 0 1"></Setter>
+                            <Setter Property="BorderBrush"  Value="Black"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate  x:DataType="local:ProductTableItem">
+                            <Border  HorizontalAlignment="Stretch">
+                                <Grid HorizontalAlignment="Stretch" Width="Auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="16"/>
+                                        <ColumnDefinition Width="220"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="160"/>
+                                        <ColumnDefinition Width="140"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="60"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Grid.Column="0" Width="14" Height="14" Fill="{x:Bind Color}"/>
+                                    <TextBlock  Grid.Column="1" Text="{x:Bind Product_Name}" Margin="10 0 0 0 " />
+                                    <TextBlock Grid.Column="2" Text="{x:Bind Total}" Foreground="Black" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                    <TextBlock Grid.Column="3" Text="{x:Bind Unit}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="4" Text="{x:Bind Price}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="5" Text="{x:Bind Total2}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="6" Text="{x:Bind Job}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="7" Text="{x:Bind Account}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Height="30"/>
+            <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0" Spacing="10">
+                <Image Source="/Assets/Sales/red_plus.png"/>
+                <TextBlock Text="Finished Product" />
+            </StackPanel>
+            <StackPanel Height="10"/>
+            <Grid Height="200" Width="1000
+                  " HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="LightGray" BorderThickness="1 1 1 0" BorderBrush="Black">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Grid.Column="0" Text="SKU/Name" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" Margin="10,0,0,0" />
+                    <TextBlock Grid.Column="1" Text="Total" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="2" Text="Unit" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="3" Text="Price" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="4" Text="Total" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="5" Text="Job" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    <TextBlock Grid.Column="6" Text="Account" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" FontSize="15" />
+                    
+                    
+                </Grid>
+                <ListView x:Name="list2" 
+                      Grid.Row="1"
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch" IsItemClickEnabled="False" 
+                      ItemsSource="{x:Bind m_goingProductList2}" BorderThickness="1,1,1,1" BorderBrush="Black" >
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                            <Setter Property="BorderThickness"  Value="0 0 0 1"></Setter>
+                            <Setter Property="BorderBrush"  Value="Black"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate  x:DataType="local:ProductTableItem">
+                            <Border  HorizontalAlignment="Stretch">
+                                <Grid HorizontalAlignment="Stretch" Width="Auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="16"/>
+                                        <ColumnDefinition Width="220"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="160"/>
+                                        <ColumnDefinition Width="140"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="60"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Grid.Column="0" Width="14" Height="14" Fill="{x:Bind Color}"/>
+                                    <TextBlock  Grid.Column="1" Text="{x:Bind Product_Name}" Margin="10 0 0 0 " />
+                                    <TextBlock Grid.Column="2" Text="{x:Bind Total}" Foreground="Black" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                    <TextBlock Grid.Column="3" Text="{x:Bind Unit}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="4" Text="{x:Bind Price}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="5" Text="{x:Bind Total2}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="6" Text="{x:Bind Job}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="7" Text="{x:Bind Account}" Foreground="Black" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0" Spacing="10">
+                <TextBlock Text="" Width="800"/>
+                <TextBlock Text="Total" />
+                <TextBlock Text="" Width="50"/>
+                <TextBlock Text="Rp 350.000" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0" Spacing="10">
+                <TextBlock Text="" Width="800"/>
+                <TextBlock Text="Balance" />
+                <TextBlock Text="" Width="30"/>
+                <TextBlock Text="Rp 350.000" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

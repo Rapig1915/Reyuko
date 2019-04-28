@@ -47,8 +47,12 @@ namespace UWPDemo
                 }
                 else
                 {
-                    if (model.Title == "Dashboard")
+                    string menuTitle = model.Title;
+                    if (menuTitle == "Dashboard")
                         ContentFrame.Navigate(typeof(DashboardPage));
+                    else if(menuTitle == "Sales")
+                        ContentFrame.Navigate(typeof(SalesboardPage));
+                   
                     else
                         ContentFrame.Navigate(typeof(SalesboardPage));
                     //tbDescription.Text = $"You clicked MainMenu1 : {model.Title}";
@@ -63,8 +67,11 @@ namespace UWPDemo
             var model = (MenuItem)e.ClickedItem;
             if (model != null)
             {
-                // tbDescription.Text = $"You clicked SubMenu : {model.Title}";
+                string menuTitle = model.Title;
+                if (menuTitle == "Sales Proposal")
+                    ContentFrame.Navigate(typeof(SalesboardPage));
             }
+            SubMenuSplitView.IsPaneOpen = model.SubMenus.Any();
         }
     }
 }
