@@ -73,7 +73,7 @@ namespace UWPDemo.Controls
             TitleColor = Colors.Black;
         }
 
-        protected void loadData()
+        public void loadData()
         {
             list.ItemsSource = m_listData;
         }

@@ -1,19 +1,15 @@
 ﻿<Page
-    x:Class="UWPDemo.Pages.Salesboard.SalesboardPage"
+    x:Class="UWPDemo.Pages.Sales.Sales_Production"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UWPDemo.Pages.Salesboard"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Windows10FallCreatorsUpdate="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 5)"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Windows10FallCreatorsUpdate="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 5)" 
-    xmlns:data="using:UWPDemo.Pages.Salesboard"
-    xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:controlsprimitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
+    xmlns:local="using:UWPDemo.Pages.Sales"
     mc:Ignorable="d"
-    x:Name="MyWindow"
     >
 
-    <Grid Background="White" Padding="27,0,0,0">
+    <Grid Padding="27,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
@@ -182,7 +178,7 @@
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
-                        <DataTemplate  x:DataType="local:ProductTableItem">
+                        <DataTemplate  x:DataType="local:SalesProductTableItem">
                             <Border  HorizontalAlignment="Stretch">
                                 <Grid HorizontalAlignment="Stretch" Width="Auto">
                                     <Grid.ColumnDefinitions>
@@ -258,7 +254,7 @@
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
-                        <DataTemplate  x:DataType="local:ProductTableItem">
+                        <DataTemplate  x:DataType="local:SalesProductTableItem">
                             <Border  HorizontalAlignment="Stretch">
                                 <Grid HorizontalAlignment="Stretch" Width="Auto">
                                     <Grid.ColumnDefinitions>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UWPDemo.Pages.Salesboard
+namespace UWPDemo.Pages.Sales
 {
-    class ProductTableItem
+    class SalesProductTableItem
     {
         public string Color { get; set; }
         public string Product_Name { get; set; }

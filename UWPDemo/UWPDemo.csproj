@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AlternatingListView.cs" />
     <Compile Include="Controls\ChartControl.xaml.cs">
       <DependentUpon>ChartControl.xaml</DependentUpon>
     </Compile>
@@ -131,19 +132,60 @@
     <Compile Include="Controls\TableControl.xaml.cs">
       <DependentUpon>TableControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\HeaderItem.cs" />
     <Compile Include="Data\Menu.cs" />
+    <Compile Include="Data\Sales_InvoiceItem.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\NotifyBase.cs" />
+    <Compile Include="Pages\Calendar\Calendar.xaml.cs">
+      <DependentUpon>Calendar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Dashboard\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Salesboard\ProductTableItem.cs" />
-    <Compile Include="Pages\Salesboard\SalesboardPage.xaml.cs">
-      <DependentUpon>SalesboardPage.xaml</DependentUpon>
+    <Compile Include="Pages\Document\Document.xaml.cs">
+      <DependentUpon>Document.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Document\Document_Type.xaml.cs">
+      <DependentUpon>Document_Type.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Document\Internal_Note.xaml.cs">
+      <DependentUpon>Internal_Note.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Document\New_Document.xaml.cs">
+      <DependentUpon>New_Document.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Document\Notes_Type.xaml.cs">
+      <DependentUpon>Notes_Type.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Pos\POS.xaml.cs">
+      <DependentUpon>POS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sales\Delivery Order\Sales_DeliveryOrder.xaml.cs">
+      <DependentUpon>Sales_DeliveryOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sales\Document\Sales_Document.xaml.cs">
+      <DependentUpon>Sales_Document.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sales\Invoice\Sales_Invoice.xaml.cs">
+      <DependentUpon>Sales_Invoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sales\Invoice\Sales_Invoice_New.xaml.cs">
+      <DependentUpon>Sales_Invoice_New.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sales\Production\SalesProductTableItem.cs" />
+    <Compile Include="Pages\Sales\Production\Sales_Production.xaml.cs">
+      <DependentUpon>Sales_Production.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sales\Return\Sales_Return.xaml.cs">
+      <DependentUpon>Sales_Return.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TransactionCode\Transaction_Code.xaml.cs">
+      <DependentUpon>Transaction_Code.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,11 +257,18 @@
     <Content Include="Assets\Icons\transaktion_1.png" />
     <Content Include="Assets\Sales\black_plus.png" />
     <Content Include="Assets\Sales\calculate.png" />
+    <Content Include="Assets\Sales\calendar.png" />
+    <Content Include="Assets\Sales\chooseFile.png" />
     <Content Include="Assets\Sales\close.png" />
     <Content Include="Assets\Sales\close2.png" />
     <Content Include="Assets\Sales\close3.png" />
     <Content Include="Assets\Sales\delete.png" />
     <Content Include="Assets\Sales\detail.png" />
+    <Content Include="Assets\Sales\download.png" />
+    <Content Include="Assets\Sales\edit.png" />
+    <Content Include="Assets\Sales\excute.png" />
+    <Content Include="Assets\Sales\find.png" />
+    <Content Include="Assets\Sales\fullscreen.png" />
     <Content Include="Assets\Sales\green_plus.png" />
     <Content Include="Assets\Sales\more.png" />
     <Content Include="Assets\Sales\new.png" />
@@ -236,6 +285,7 @@
     <Content Include="Assets\Sales\save3.png" />
     <Content Include="Assets\Sales\search.png" />
     <Content Include="Assets\Sales\tutorial.png" />
+    <Content Include="Assets\Sales\view_as_chart.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -270,11 +320,63 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\Calendar\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Dashboard\DashboardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Salesboard\SalesboardPage.xaml">
+    <Page Include="Pages\Document\Document.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Document\Document_Type.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Document\Internal_Note.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Document\New_Document.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Document\Notes_Type.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Pos\POS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Sales\Delivery Order\Sales_DeliveryOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Sales\Document\Sales_Document.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Sales\Invoice\Sales_Invoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Sales\Invoice\Sales_Invoice_New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Sales\Production\Sales_Production.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Sales\Return\Sales_Return.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TransactionCode\Transaction_Code.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -293,6 +395,9 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
       <Version>5.1.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Purchase\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

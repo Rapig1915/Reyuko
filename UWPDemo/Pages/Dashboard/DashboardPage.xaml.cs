@@ -127,7 +127,6 @@ namespace UWPDemo.Pages.Dashboard
             }
             else
             {
-                string str = "QWE";
             }
         }
     }

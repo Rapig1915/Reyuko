@@ -41,7 +41,7 @@ namespace UWPDemo.Controls
             txtContent.Text = strContent;
 
         }
-        protected static void Dlg_PrimaryButtonClick(ContentDialog dlg, ContentDialogButtonClickEventArgs ee)
+        public static void Dlg_PrimaryButtonClick(ContentDialog dlg, ContentDialogButtonClickEventArgs ee)
         {
             dlg.Hide();
         }

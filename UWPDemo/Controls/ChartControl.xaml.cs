@@ -130,7 +130,7 @@ namespace UWPDemo.Controls
             {
                 DarwOnCanvas();
             }
-            catch (Exception ee)
+            catch (Exception )
             {
 
             }

@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="UWPDemo.Pages.Calendar.Calendar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPDemo.Pages.Calendar"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:UWPDemo.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Grid Padding="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock 
+                Grid.Column="0"
+                x:Name="tbDescription"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontSize="36" Text="POS" Margin="20,10,0,0" Foreground="Black" />
+
+            <StackPanel
+                FlowDirection="LeftToRight" Orientation="Horizontal"
+                Grid.Column="1">
+                <Button x:Name="btnCalendar" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/calendar.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Calendar"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnOpen" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/detail.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Open"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnExcute" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/excute.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Excute"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnMore" Background="Transparent" >
+                    <Button.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text ="Delete" Margin="0,0,10,0">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Spacing="5">
+                                            <Image Source="/Assets/Sales/delete.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text ="Play Tutorial" Margin="0,0,10,0">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Spacing="5">
+                                            <Image Source="/Assets/Sales/tutorial.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                    <Image Source="/Assets/Sales/more.png" Width="30" Height="30"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Rectangle Grid.Row="1" Fill="Gray"/>
+        
+        <Grid HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <CalendarView Grid.Column="0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+            <Rectangle Grid.Column="1" Fill="Gray" Width="1"/>
+            <Grid Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <controls:ListControl Grid.Row="0" x:Name="list1" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3.3*"/>
+                        <RowDefinition Height="3.3*"/>
+                        <RowDefinition Height="3.4*"/>
+                    </Grid.RowDefinitions>
+                    <controls:TableControl Grid.Row="0" x:Name="table1" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                    <controls:TableControl Grid.Row="1" x:Name="table2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                    <controls:TableControl Grid.Row="2" x:Name="table3" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Page>

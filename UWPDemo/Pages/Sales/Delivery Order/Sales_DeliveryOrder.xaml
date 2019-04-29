@@ -1,0 +1,203 @@
+﻿<Page
+    x:Class="UWPDemo.Pages.Sales.Delivery_Order.Sales_DeliveryOrder"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPDemo.Pages.Sales.Delivery_Order"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:UWPDemo.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Padding="27,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock 
+                Grid.Column="0"
+                x:Name="tbDescription"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontSize="36" Text="Delivery Order" Margin="10,10,0,0" Foreground="Black" />
+
+            <StackPanel
+                FlowDirection="LeftToRight" Orientation="Horizontal"
+                Grid.Column="1">
+                <Button Name="btnNew" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/new.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="New"/>
+                    </StackPanel>
+                    <Button.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text ="New Sales Quotation">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Spacing="5">
+                                            <TextBlock Text="{TemplateBinding Text}" Margin="0,0, 20,0"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutSeparator/>
+                            <MenuFlyoutItem Text ="New Sales Order">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Spacing="5">
+                                            <TextBlock Text="{TemplateBinding Text}" Margin="0,0, 20,0"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+                <Button Name="btnDetail" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/detail.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Detail"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnPrint" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/print.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Print"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnRefresh" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/refresh.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Refresh"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnDelete" Background="Transparent">
+                    <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Spacing="5">
+                        <Image Source="/Assets/Sales/delete.png" Width="30" Height="30"/>
+                        <TextBlock VerticalAlignment="Center" Text="Delete"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnMore" Background="Transparent" >
+                    <Image Source="/Assets/Sales/more.png" Width="30" Height="30"/>
+                    <Button.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text ="View as Chart">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Spacing="5">
+                                            <Image Source="/Assets/Sales/view_as_chart.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" Margin="0,0, 20,0"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+
+                            <MenuFlyoutItem Text ="View Unposted">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Spacing="5">
+                                            <Image Source="/Assets/Sales/posted.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" Margin="0,0, 20,0"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+
+                            <MenuFlyoutItem Text ="Play Tutorial">
+                                <MenuFlyoutItem.Template>
+                                    <ControlTemplate TargetType="MenuFlyoutItem">
+                                        <StackPanel Margin="12,10,0,0" Orientation="Horizontal" Spacing="5">
+                                            <Image Source="/Assets/Sales/tutorial.png" Width="30" Height="30"/>
+                                            <TextBlock Text="{TemplateBinding Text}" />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </MenuFlyoutItem.Template>
+                            </MenuFlyoutItem>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="10" Orientation="Vertical" Spacing="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Type List"/>
+                <StackPanel Width="152"/>
+                <TextBlock Text="Periode"/>
+                <StackPanel Width="290"/>
+                <TextBlock Text="Annuality"/>
+                <TextBlock Text="" Width="145"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <ComboBox Width="180"/>
+                <StackPanel Width="10"/>
+                <CalendarDatePicker  Width="150"/>
+                <CalendarDatePicker  Width="150"/>
+                <TextBlock Text="" Width="10"/>
+                <ComboBox Width="180"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Customer Classification"/>
+                <StackPanel Width="55"/>
+                <TextBlock Text="Value Range"/>
+                <StackPanel Width="260"/>
+                <TextBlock Text="Currency"/>
+                <StackPanel Width="151"/>
+                <TextBlock Text="Recap"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <ComboBox Width="180"/>
+                <StackPanel Width="10"/>
+                <TextBox Width="150"/>
+                <TextBox Width="150"/>
+                <StackPanel Width="10"/>
+                <ComboBox Width="180"/>
+                <StackPanel Width="10"/>
+                <ComboBox Width="200"/>
+            </StackPanel>
+
+            <StackPanel Height="10"/>
+
+            <Grid
+                Name="table"
+                Width="1100"
+                Height="500"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid     x:Name ="header" 
+                  Grid.Row="0" />
+                <controls:AlternatingListView x:Name="list" 
+                  Grid.Row="1"
+                  BorderThickness="1" 
+                  BorderBrush="Black" 
+                  EvenRowBackground="White"
+                  OddRowBackground="#dee9f1"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsItemClickEnabled="False" >
+
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                            <Setter Property="BorderThickness"  Value="0 0 0 1"></Setter>
+                            <Setter Property="BorderBrush"  Value="Black"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+
+                </controls:AlternatingListView>
+
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
